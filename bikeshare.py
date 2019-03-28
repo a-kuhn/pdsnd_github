@@ -188,9 +188,12 @@ def user_stats(df):
 
 def data_display(df):
     """Displays 5 lines of raw data at a time, per user's request."""
+    #get user input -- do they want to see raw data?
     answer = None
     answer = input("Would you like to look at some of the raw data behind these statistics? Enter yes or no: ")
     count = 0
+
+    #display 5 lines raw data if user says yes. add to count so next 5 lines of raw data will be displayed if user wants more
     while True:
         if answer == 'yes':
             print(df[:][count:(count+5)])
@@ -200,6 +203,8 @@ def data_display(df):
         else:
             print('Sorry, I didn\'t understand that.')
             continue
+
+        #get user input -- do they want more data or not?
         answer = input('Would you like to see 5 more rows of data? Enter yes or no: ')
 
 def main():
