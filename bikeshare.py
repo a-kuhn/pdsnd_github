@@ -23,8 +23,7 @@ def get_filters():
     month = None
     day = None
     while True:
-        city = input('Which city would you like to take a closer look at? Please enter chicago, new york city, or washington: ')
-        city = city.lower()
+        city = (input('Which city would you like to take a closer look at? Please enter chicago, new york city, or washington: ')).lower()
         if city not in ('chicago', 'new york city', 'washington'):
             print('Sorry, I did not understand that.')
             continue
@@ -33,8 +32,7 @@ def get_filters():
             break
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
-        month = input('Do you want to look at one month in particular, or all months? Please enter all, january, february, march, april, may, or june: ')
-        month = month.lower()
+        month = (input('Do you want to look at one month in particular, or all months? Please enter all, january, february, march, april, may, or june: ')).lower()
         if month not in ('all', 'january', 'february', 'march', 'april', 'may', 'june'):
             print('Sorry, I did not understand that.')
             continue
@@ -46,8 +44,7 @@ def get_filters():
             break
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-        day = input('Do you want to look at a single day, or every day? Please enter all, sunday, monday, tuesday, wednesday, thursday, friday, or saturday: ')
-        day = day.lower()
+        day = (input('Do you want to look at a single day, or every day? Please enter all, sunday, monday, tuesday, wednesday, thursday, friday, or saturday: ')).lower()
         if day not in ('all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'):
             print('Sorry, I did not understand that.')
             continue
@@ -137,8 +134,7 @@ def station_stats(df):
 
     # TO DO: display most frequent combination of start station and end station trip
 
-    df.insert(8, 'trip', (df['Start Station'] + ' to ' + df['End Station']))
-    print("The most frequent combination of start and end station is: {}.".format(df['trip'].mode()[0]))
+    print("The most frequent combination of start and end station is: {}.".format((df['Start Station'] + ' to ' + df['End Station']).mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
